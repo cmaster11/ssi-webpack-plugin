@@ -7,7 +7,7 @@ const request = require('request')
 
 /**
  * 获取ssi资源内容
- * 
+ *
  * @param {String} dir 路径
  * @param {Object} setting 设置，主要使用localBaseDir和publicPath
  * @returns {Promise}  resolve(解析dir得到的资源) reject(错误状态码||异常信息栈)
@@ -57,7 +57,7 @@ function getSource(dir, setting){
 
             try{
 
-                const absoultPath = path.normalize(context ? path.join(context, dir) : dir)
+                const absoultPath = context ? path.join(context, dir) : dir
                 const body = fs.readFileSync(absoultPath).toString()
 
                 resolve(body)
