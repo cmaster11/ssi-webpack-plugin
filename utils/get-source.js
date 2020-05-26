@@ -58,7 +58,7 @@ function getSource(dir, setting) {
 
         const absolutePath = path.normalize(context ? path.join(context, dir) : dir);
 
-        console.log(`replace ssi file ${dir} => path=${absolutePath}`);
+        console.log(`replace ssi file ${dir} [ctx=${context}] => path=${absolutePath}`);
 
         const body = fs.readFileSync(absolutePath).toString();
 
