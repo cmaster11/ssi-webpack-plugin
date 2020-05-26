@@ -4,15 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const request = require('request');
 
-
-/**
- * 获取ssi资源内容
- *
- * @param {String} dir 路径
- * @param {Object} setting 设置，主要使用localBaseDir和publicPath
- * @returns {Promise}  resolve(解析dir得到的资源) reject(错误状态码||异常信息栈)
- */
-function getSource(dir, setting) {
+function getSource(tag, dir, setting) {
 
 
   const isRemotePath = /https?\:\/\//g.test(dir);
@@ -58,7 +50,7 @@ function getSource(dir, setting) {
 
         const absolutePath = path.normalize(context ? path.join(context, dir) : dir);
 
-        console.log(`replace ssi file ${dir} [ctx=${context}] => path=${absolutePath}`);
+        console.log(`replace ssi file ${dir} [tag=${tag} ctx=${context}] => path=${absolutePath}`);
 
         const body = fs.readFileSync(absolutePath).toString();
 

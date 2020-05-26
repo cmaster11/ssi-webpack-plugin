@@ -100,7 +100,7 @@ class SSICompileWebpackplugin {
           }
 
         }
-        return getSource(src, this.setting);
+        return getSource(name, src, this.setting);
       }))
         .then((sucessResult) => {
 
