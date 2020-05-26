@@ -69,7 +69,7 @@ class SSICompileWebpackplugin {
 
 
   replaceSSIFile(compilation, name) {
-    const includeFileReg = /<!--#\s*include\s+(file|virtual)=(['"])([^\r\n\s]+?)\2\s*(.*)-->/g;
+    const includeFileReg = /(?:\/\/)?<!--#\s*include\s+(file|virtual)=(['"])([^\r\n\s]+?)\2\s*(.*)-->/g;
     let source = compilation.assets[name].source().toString();
     const fileArr = source.match(includeFileReg);
 
